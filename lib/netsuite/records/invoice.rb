@@ -50,7 +50,10 @@ module NetSuite
       attr_accessor :external_id
       attr_accessor :search_joins
 
+      attr_reader :raw_attributes
+
       def initialize(attributes = {})
+        @raw_attributes = attributes
         @internal_id = attributes.delete(:internal_id) || attributes.delete(:@internal_id)
         @external_id = attributes.delete(:external_id) || attributes.delete(:@external_id)
         initialize_from_attributes_hash(attributes)
